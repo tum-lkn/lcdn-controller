@@ -302,7 +302,7 @@ class Network(object):
         bbox_props = dict(boxstyle="round,pad=0.3", edgecolor='none', facecolor='white', alpha=0.5)
         nx.draw_networkx_edge_labels(self._graph, pos=pos, edge_labels=edge_labels, font_size=10, label_pos=0.7, bbox=bbox_props)
 
-        plt.show()
+        plt.savefig(f'q_delay_prio_{self._priority}.pdf')
 
     def draw_rate(self):
         rates = [self._graph[u][v]['arrival_curve'].rate / self._graph[u][v]['service_curve'].rate for u, v in self._graph.edges()]
@@ -331,7 +331,7 @@ class Network(object):
         bbox_props = dict(boxstyle="round,pad=0.3", edgecolor='none', facecolor='white', alpha=0.5)
         nx.draw_networkx_edge_labels(self._graph, pos=pos, edge_labels=edge_labels, font_size=10, label_pos=0.7, bbox=bbox_props)
 
-        plt.show()
+        plt.savefig(f'rate_prio_{self._priority}.pdf')
 
     def draw_burst(self):
         bursts = [self._graph[u][v]['arrival_curve'].burst / self._graph[u][v]['buffer'] for u, v in self._graph.edges()]
@@ -360,7 +360,7 @@ class Network(object):
         bbox_props = dict(boxstyle="round,pad=0.3", edgecolor='none', facecolor='white', alpha=0.5)
         nx.draw_networkx_edge_labels(self._graph, pos=pos, edge_labels=edge_labels, font_size=10, label_pos=0.7, bbox=bbox_props)
 
-        plt.show()
+        plt.savefig(f'burst_prio_{self._priority}.pdf')
 
 
 class NetworkManager(object):

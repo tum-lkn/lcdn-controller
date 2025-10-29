@@ -59,7 +59,7 @@ class ServiceCurve:
         else:
             return ArrivalCurve(rate=ac.rate, burst=ac.burst + ac.rate * self.latency)
 
-    def conv_chameleon(self, ac: ArrivalCurve, threshold: float) -> ArrivalCurve:
+    def conv_threshold(self, ac: ArrivalCurve, threshold: float) -> ArrivalCurve:
         """
         Variant of convolution with Queue Level Thresholds.
 
@@ -107,7 +107,7 @@ class ServiceCurve:
         else:
             return ac.burst + ac.rate * self.latency
 
-    def buffer_chameleon(self, ac: ArrivalCurve, threshold: float) -> float:
+    def buffer_threshold(self, ac: ArrivalCurve, threshold: float) -> float:
         """
         Compute buffer requirement with the queue threshold.
 
